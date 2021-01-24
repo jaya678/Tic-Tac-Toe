@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1611474449 source:d:\c programs\project\tic-tac-toe game\main.cpp
+	<iostream>
+	<stdio.h>
+	<conio.h>
+	<windows.h>
+	<stdlib.h>
+
+1611480517 source:d:\c programs\project\tic-tac-toe\main.cpp
+	<iostream>
+	<stdio.h>
+	<conio.h>
+	<windows.h>
+	<stdlib.h>
+	<MMsystem.h>
+
