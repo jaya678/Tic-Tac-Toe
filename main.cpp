@@ -11,10 +11,10 @@
 
 using namespace std;
 
-char square[10] = {'o','1','2','3','4','5','6','7','8','9'};            // 'o' has been added just to match the index
+char square[10] = {'o',' ',' ',' ',' ',' ',' ',' ',' ',' '};            // 'o' has been added just to match the index
 int checkWin();                     /* function to check we have the winner or not, returns: 1 -> winner
                                                                                             -1 -> game in progress
-                                                                                             0 -> dwaw     */
+                                                                                             0 -> draw     */
 
 void drawBoard(string,string);                                                       // function to draw the board on our screen
 
@@ -25,10 +25,10 @@ int main()
     char mark ;
     string name1,name2;
 
-    cout<<"\n Player1 enter your name: ";
+    cout<<"\n Player1 enter your firstname: ";
     cin>>name1;
 
-    cout<<"\n Player2 enter your name: ";
+    cout<<"\n Player2 enter your firstname: ";
     cin>>name2;
                            // X,0
  do{
@@ -37,31 +37,31 @@ int main()
     player = (player%2) ? 1 : 2;
 
     if(player == 1)
-    cout<<"\n " <<name1<<" enter your choice: ";
+    cout<<"\n " <<name1<<" enter your choice (1-9): ";
     else
-    cout<<"\n " <<name2<<" enter your choice: ";
+    cout<<"\n " <<name2<<" enter your choice (1-9): ";
 
     cin>>choice;
 
     mark = (player == 1)? 'X' : 'O';
 
-    if (choice == 1 && square[1] == '1')     // the place is still vacant
+    if (choice == 1 && square[1] == ' ')     // the place is still vacant
         square[1] = mark ;
-    else if (choice == 2 && square[2] == '2')
+    else if (choice == 2 && square[2] == ' ')
         square[2] = mark ;
-    else if (choice == 3 && square[3] == '3')
+    else if (choice == 3 && square[3] == ' ')
         square[3] = mark ;
-    else if (choice == 4 && square[4] == '4')
+    else if (choice == 4 && square[4] == ' ')
         square[4] = mark ;
-    else if (choice == 5 && square[5] == '5')
+    else if (choice == 5 && square[5] == ' ')
         square[5] = mark ;
-    else if (choice == 6 && square[6] == '6')
+    else if (choice == 6 && square[6] == ' ')
         square[6] = mark ;
-    else if (choice == 7 && square[7] == '7')
+    else if (choice == 7 && square[7] == ' ')
         square[7] = mark ;
-    else if (choice == 8 && square[8] == '8')
+    else if (choice == 8 && square[8] == ' ')
         square[8] = mark ;
-    else if (choice == 9 && square[9] == '9')
+    else if (choice == 9 && square[9] == ' ')
         square[9] = mark ;
     else{
         cout<<"Invalid Option !";
@@ -91,23 +91,23 @@ int main()
 
 
 int checkWin(){
-  if(square[1]==square[2] && square[2]==square[3])
+  if(square[1]==square[2] && square[2]==square[3] && (square[1]=='X' || square[1]=='O'))
     return 1;
-  else if (square[4]==square[5] && square[5]==square[6])
+  else if (square[4]==square[5] && square[5]==square[6] && (square[4]=='X' || square[4]=='O'))
     return 1;
-  else if (square[7]==square[8] && square[8]==square[9])
+  else if (square[7]==square[8] && square[8]==square[9] && (square[7]=='X' || square[7]=='O'))
     return 1;
-  else if (square[1]==square[4] && square[4]==square[7])
+  else if (square[1]==square[4] && square[4]==square[7] && (square[1]=='X' || square[1]=='O'))
     return 1;
-  else if (square[2]==square[5] && square[5]==square[8])
+  else if (square[2]==square[5] && square[5]==square[8] && (square[2]=='X' || square[2]=='O'))
     return 1;
-  else if (square[3]==square[6] && square[6]==square[9])
+  else if (square[3]==square[6] && square[6]==square[9] && (square[3]=='X' || square[3]=='O'))
     return 1;
-  else if (square[1]==square[5] && square[5]==square[9])
+  else if (square[1]==square[5] && square[5]==square[9] && (square[1]=='X' || square[1]=='O'))
     return 1;
-  else if (square[3]==square[5] && square[5]==square[7])
+  else if (square[3]==square[5] && square[5]==square[7] && (square[3]=='X' || square[3]=='O'))
     return 1;
-  else if(square[1] != '1' && square[2] != '2' && square[4] != '4' && square[5] != '5' && square[6] != '6' && square[7] != '7' && square[8] != '8' && square[9] != '9')
+  else if(square[1] != ' ' && square[2] != ' ' && square[4] != ' ' && square[5] != ' ' && square[6] != ' ' && square[7] != ' ' && square[8] != '8' && square[9] != '9')
     return 0;              // No winner -> draw
   else
     return -1;            // Game still in progress
